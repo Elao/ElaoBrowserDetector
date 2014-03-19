@@ -1,0 +1,24 @@
+{
+    "name": "elao/browser-detector",
+    "description": "Elao Browser Detector",
+    "license": "MIT",
+    "keywords": ["browser", "detection", "user-agent", "browscap"],
+    "authors": [
+        {
+            "name": "Thomas Jarrand",
+            "email": "thomas.jarrand@elao.com"
+        },
+        {
+            "name": "Benjamin Lévêque",
+            "email": "benjamin.leveque@elao.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Elao\\BrowserDetector": "src/"
+        }
+    }
+}
