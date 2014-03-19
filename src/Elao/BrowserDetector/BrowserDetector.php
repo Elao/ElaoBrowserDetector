@@ -3,7 +3,6 @@
 namespace Elao\BrowserDetector;
 
 use Symfony\Component\HttpFoundation\Request;
-use Elao\BrowserDetectorBundle\Model\Browser;
 
 /**
  * Browser Detector
