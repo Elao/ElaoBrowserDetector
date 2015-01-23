@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Elao\\BrowserDetector": "src/"
+            "Elao\\BrowserDetector\\": "src/"
         }
     },
     "extra": {
