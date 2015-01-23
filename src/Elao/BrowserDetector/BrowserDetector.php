@@ -2,8 +2,6 @@
 
 namespace Elao\BrowserDetector;
 
-use Symfony\Component\HttpFoundation\Request;
-
 /**
  * Browser Detector
  */
@@ -15,30 +13,35 @@ class BrowserDetector
 
     /**
      * Is Browscap enabled
+     *
      * @var boolean
      */
     private $browscapEnabled;
 
     /**
      * Browser
+     *
      * @var Browser
      */
     private $browser;
 
     /**
      * Browsers requirements
+     *
      * @var array
      */
     private $requirements;
 
     /**
      * Browser compatibility
+     *
      * @var boolean
      */
     private $compatibility;
 
     /**
      * Constructor
+     *
      * @param boolean $browscapEnabled Is browscap enabled
      */
     public function __construct($browscapEnabled)
@@ -51,6 +54,11 @@ class BrowserDetector
         );
     }
 
+    /**
+     * Load configuration
+     *
+     * @param array $config
+     */
     public function loadConfiguration($config)
     {
         foreach ($config as $support => $requirement) {
@@ -60,6 +68,13 @@ class BrowserDetector
         }
     }
 
+    /**
+     * Parse version
+     *
+     * @param string $version
+     *
+     * @return array
+     */
     public function parseVersion($version)
     {
         if (!empty($version) && preg_match('/^([<>]=?)?(.+)/', $version, $matches)) {
@@ -93,27 +108,22 @@ class BrowserDetector
     }
 
     /**
-     * Set the request
-     * @param Request $request
+     * Set the user agent
+     *
+     * @param string $userAgent
      */
-    public function setRequest(Request $request)
+    public function setUserAgent($userAgent)
     {
-        $this->setBrowser($this->createBrowserFromRequest($request));
-    }
-
-    /**
-     * Create Browser from Request
-     * @param  Request $request
-     * @return Browser
-     */
-    public function createBrowserFromRequest(Request $request)
-    {
-        return $this->createBrowserFromUserAgent($request->headers->get('user-agent'));
+        if ($browser = $this->createBrowserFromUseragent($userAgent)) {
+            $this->setBrowser($browser);
+        }
     }
 
     /**
      * Create Browser from user-agent directive
-     * @param  string $request
+     *
+     * @param  string $userAgent
+     *
      * @return Browser
      */
     public function createBrowserFromUserAgent($userAgent)
@@ -125,6 +135,7 @@ class BrowserDetector
 
     /**
      * Get the current Browser
+     *
      * @return Browser
      */
     public function getBrowser()
@@ -132,7 +143,12 @@ class BrowserDetector
         return $this->browser;
     }
 
-    public function setBrowser($browser)
+    /**
+     * Set browser
+     *
+     * @param Browser $browser
+     */
+    public function setBrowser(Browser $browser)
     {
         $this->browser       = $browser;
         $this->compatibility = self::BROWSER_COMPATIBLE;
@@ -156,6 +172,7 @@ class BrowserDetector
 
     /**
      * Is the current browser compatible ?
+     *
      * @return boolean
      */
     public function isCompatible()
@@ -165,6 +182,7 @@ class BrowserDetector
 
     /**
      * Is the current browser partially compatible ?
+     *
      * @return boolean
      */
     public function isPartiallyCompatible()
@@ -174,6 +192,7 @@ class BrowserDetector
 
     /**
      * Is the current browser incompatible ?
+     *
      * @return boolean
      */
     public function isIncompatible()

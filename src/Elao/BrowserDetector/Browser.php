@@ -7,10 +7,16 @@ namespace Elao\BrowserDetector;
  */
 class Browser
 {
+    /**
+     * Name
+     *
+     * @var string
+     */
     private $name;
 
     /**
      * Constructor
+     *
      * @param array $data Browser data
      */
     public function __construct($data = array())
@@ -30,6 +36,7 @@ class Browser
 
     /**
      * Get the name of the Browser
+     *
      * @return string
      */
     public function getName()
@@ -39,6 +46,7 @@ class Browser
 
     /**
      * Get the version of the Browser
+     *
      * @return string
      */
     public function getVersion()
@@ -48,6 +56,7 @@ class Browser
 
     /**
      * Get the platform of the Browser
+     *
      * @return string
      */
     public function getPlatform()
@@ -57,8 +66,10 @@ class Browser
 
     /**
      * Is exactly
+     *
      * @param  string  $name    Browser name
      * @param  string  $version Browser version
+     *
      * @return boolean          Result
      */
     public function is($name, $version = null)
@@ -72,8 +83,10 @@ class Browser
 
     /**
      * Test if the browser matches this name and version requirements
+     *
      * @param  string   $name   The browser name
      * @param  array    $req    The version requirements
+     *
      * @return boolean
      */
     public function matches($name, $req)
@@ -91,7 +104,9 @@ class Browser
 
     /**
      * Is exactly
+     *
      * @param  string  $version Browser version
+     *
      * @return boolean          Result
      */
     public function isExactly($version)
@@ -101,7 +116,9 @@ class Browser
 
     /**
      * Is later than
+     *
      * @param  string  $version Browser version
+     *
      * @return boolean          Result
      */
     public function isLaterThan($version)
@@ -111,7 +128,9 @@ class Browser
 
     /**
      * Is later than or equal
+     *
      * @param  string  $version Browser version
+     *
      * @return boolean          Result
      */
     public function isEqualOrLaterThan($version)
@@ -121,7 +140,9 @@ class Browser
 
     /**
      * Is earlier than
+     *
      * @param  string  $version Browser version
+     *
      * @return boolean          Result
      */
     public function isEarlierThan($version)
@@ -131,7 +152,9 @@ class Browser
 
     /**
      * Is earlier than or equal
+     *
      * @param  string  $version Browser version
+     *
      * @return boolean          Result
      */
     public function isEqualOrEarlierThan($version)
@@ -141,7 +164,9 @@ class Browser
 
     /**
      * Test if the browser platform matches the given platform
+     *
      * @param  string  $platform The platform to match
+     *
      * @return boolean
      */
     public function isPlatform($platform)
