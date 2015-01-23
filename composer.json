@@ -17,8 +17,13 @@
         "php": ">=5.3.3"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Elao\\BrowserDetector": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1.x-dev"
         }
     }
 }
