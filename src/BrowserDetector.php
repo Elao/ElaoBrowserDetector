@@ -46,7 +46,6 @@ class BrowserDetector
      */
     private $config;
 
-
     /**
      * Constructor
      *
