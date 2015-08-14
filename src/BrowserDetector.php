@@ -199,4 +199,13 @@ class BrowserDetector
     {
         return $this->compatibility === self::BROWSER_INCOMPATIBLE;
     }
+
+    /**
+     * Get requirements
+     * @return array
+     */
+    public function getRequirements()
+    {
+        return $this->requirements;
+    }
 }
