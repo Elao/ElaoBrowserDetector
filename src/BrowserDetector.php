@@ -202,6 +202,7 @@ class BrowserDetector
 
     /**
      * Get requirements
+     *
      * @return array
      */
     public function getRequirements()
