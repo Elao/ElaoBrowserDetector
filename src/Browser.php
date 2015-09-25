@@ -15,6 +15,20 @@ class Browser
     private $name;
 
     /**
+     * Version
+     *
+     * @var string
+     */
+    private $version;
+
+    /**
+     * Platform
+     *
+     * @var string
+     */
+    private $platform;
+
+    /**
      * Constructor
      *
      * @param array $data Browser data
