@@ -1,6 +1,8 @@
 Elao BrowserDetector
 ====================
 
+## Deprecated : please use https://github.com/piwik/device-detector instead.
+
 ```
 $detector = new BrowserDetector(true);
 $detector->loadConfiguration(array());
