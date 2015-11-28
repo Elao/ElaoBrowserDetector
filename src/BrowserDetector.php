@@ -40,6 +40,13 @@ class BrowserDetector
     private $compatibility;
 
     /**
+     * Config
+     *
+     * @var array
+     */
+    private $config;
+
+    /**
      * Constructor
      *
      * @param boolean $browscapEnabled Is browscap enabled
@@ -61,6 +68,7 @@ class BrowserDetector
      */
     public function loadConfiguration($config)
     {
+        $this->config = $config;
         foreach ($config as $support => $requirement) {
             foreach ($requirement as $name => $version) {
                 $this->requirements[$support][ucwords($name)] = $this->parseVersion($version);
@@ -198,5 +206,15 @@ class BrowserDetector
     public function isIncompatible()
     {
         return $this->compatibility === self::BROWSER_INCOMPATIBLE;
+    }
+
+    /**
+     * Get the config
+     *
+     * @return array
+     */
+    public function getConfig()
+    {
+       return $this->config;
     }
 }
